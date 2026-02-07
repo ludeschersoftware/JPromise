@@ -1,24 +1,28 @@
 {
     "name": "@ludeschersoftware/promise",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A minimal utility for observing the lifecycle of a single Promise. It lets you check whether a promise is pending, fulfilled, or rejected, and safely access its result or error without needing extra state handling.",
     "publishConfig": {
         "access": "public"
     },
-    "main": "index.js",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/cjs/index.js",
+            "import": "./dist/esm/index.js",
+            "types": "./dist/esm/index.d.ts"
+        }
+    },
     "scripts": {
-        "build": "tsc --project tsconfig.json",
+        "build:cjs": "tsc --project tsconfig.commonjs.json",
+        "build:esm": "tsc --project tsconfig.esnext.json",
+        "build": "yarn build:cjs && yarn build:esm",
         "watch": "tsc --watch",
         "test": "jest --passWithNoTests",
         "test:watch": "jest --watch",
         "test:coverage": "jest --coverage"
-    },
-    "types": "index.ts",
-    "exports": {
-        ".": {
-            "import": "./index.js",
-            "types": "./index.ts"
-        }
     },
     "repository": {
         "type": "git",

@@ -137,6 +137,21 @@ npm run test:coverage
 
 ---
 
+## 📦 Module Support
+
+This package ships with both:
+
+* CommonJS (`require`)
+* ES Modules (`import`)
+
+So it works in:
+
+* Node.js projects
+* Modern bundlers (Vite/Webpack/Rollup)
+* TypeScript projects
+
+---
+
 ## 📜 License
 
 MIT © Johannes Ludescher
